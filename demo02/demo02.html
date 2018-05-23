@@ -1,0 +1,49 @@
+<!--absolute定位-->
+<!DOCTYPE html>
+<html>
+	<!--
+		1.相对定位（relative）是“相对于”元素在文档中的初始位置
+		2.绝对定位的元素的位置相对于最近的已定位祖先元素(除 static 定位以外的元素)，如果元素没有已定位的祖先元素，那么它的位置相对于最初的包含块。
+		3.因为绝对定位的框与文档流无关，所以它们可以覆盖页面上的其它元素。可以通过设置 z-index 属性来控制这些框的堆放次序。
+	-->
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.content{
+				position: relative
+				float: left;
+				left: 60px;
+				margin: 300px auto 0 auto; 
+				width: 600px;
+				height: 200px;
+				border:  1px solid;
+				background-color: #fffff0;
+			}
+			.outer{
+				margin-top: 100px;
+				width: 200px;
+				height: 60px;
+				background-color: #ff0000;
+			}
+			.inner{
+				position: absolute;
+				/*相对已定位祖先元素content进行定位*/
+				top:50px;
+				left: 50px;
+				width: 50px;
+				height: 50px;
+				background-color: #ffff00;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<div class="outer">
+				<div class="inner">
+					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

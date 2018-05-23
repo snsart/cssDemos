@@ -1,0 +1,59 @@
+<!--absolute定位-->
+<!DOCTYPE html>
+<html>
+	<!--
+		1.浮动的框可以向左或向右移动，直到它的外边缘碰到包含框或另一个浮动框的边框为止。
+		2.由于浮动框不在文档的普通流中，所以文档的普通流中的块框表现得就像浮动框不存在一样。
+		3.浮动框旁边的行框被缩短，从而给浮动框留出空间，行框围绕浮动框。因此，创建浮动框可以使文本围绕图像。
+		4.要想阻止行框围绕浮动框，需要对该框应用 clear 属性。clear 属性的值可以是 left、right、both 或 none，它表示框的哪些边不应该挨着浮动框。
+	-->
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.content{
+				position: relative;
+				margin: 300px auto 0 auto; 
+				width: 600px;
+				height: 200px;
+				border:  1px solid;
+				background-color: #fffff0;
+			}
+			.div1{
+				display: inline-block;
+				width: 50px;
+				height: 50px;
+				background-color: #ff0000;
+			}
+			.div2{
+				float: left;
+				width: 50px;
+				height: 50px;
+				background-color: #00ff00;
+			}
+			.div3{
+				
+				background-color: #8fffff;
+			}
+			p{
+				margin: 0;
+				clear: left;/*使段落的左边不能挨着浮动元素*/
+			}
+				
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<div class="div1">
+				1
+			</div>
+			<div class="div2">
+				2
+			</div>
+			<div class="div3">
+				<p>这是一段测试文本这是一段测试文本这是一段测试文本这是一段测试文本这是一段测试文本这是一段测试文本</br>这是一段测试文本这是一段测试文本这是一段测试文本这是一段测试文本</p>
+			</div>
+			
+		</div>
+	</body>
+</html>

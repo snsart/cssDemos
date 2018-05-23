@@ -1,9 +1,17 @@
+<!--外边距合并-->
 <!DOCTYPE html>
 <html>
 	<!--
 		1.body的默认margin一般为8px;
 		2.当为static定位时，top left等属性无意义（元素按普通流定位）；
 		3.text-align可使行内元素居中,块级元素居中需要用margin：0 auto；
+		4.嵌套div中的margin-top会出现转移，在部分浏览器中，两个嵌套的div，如果外层父元素div的padding值为0，那么内层div的margin-top，margin-bottom值都会转移到父元素也就是外层div，解决办法有如下两种：
+		（1）给父元素outer设置一个padding值。
+		（2）给父元素outer设置一个overflow：hidden；在不加overflow:Hidden;的时候，margin-top:这个属性是认不到边的，也就是失效。但是ie浏览器解决了这个问题，火狐、谷歌之类的就会出现失效，所以这是个标准问题，也是个兼容问题；
+		（3）给父元素outer设置position: absolute;
+		5.只有普通文档流中块框的垂直边界才会发生边界叠加。行内框、浮动框或绝对定位框之间的边界不会叠加。
+		6.在普通文档流中，两个嵌套的盒子中间没有非空内容间隔，它们垂直的margin会合并。这就是嵌套盒子的margin折叠
+		http://www.w3school.com.cn/css/css_margin_collapsing.asp
 	-->
 	<head>
 		<meta charset="UTF-8">
@@ -15,31 +23,53 @@
 				padding: 0px;
 			}
 			.outer{
-				
 				width:200px;
 				height: 200px;
 				margin: 200px auto;
 				background-color: #ff0000;
 			}
-			.inner{
-				/*position: absolute;*/
-				/*top:10px;*/
+			.inner1{
 				width: 50px;
 				height: 50px;
-				margin: 20px;
-				padding: 5px;
+				margin-top: 60px;
 				background-color: #ffff00;
-			}
-			
+			}		
 		</style>
 	</head>
 	<body>
-		woshizhongguoren
-		<strong>12454545</strong>
 		<div class="outer">
-			<div class="inner">
-				
+			<div class="inner1">
 			</div>
 		</div>
+		
 	</body>
+	<!--
+		三.解决margin折叠
+
+		3.1嵌套margin折叠类型解决方法
+		
+		1.在父层盒子添加：overflow：hidden (比较暴力，如果有悬浮窗可能导致无法看到)
+		
+		2.不用margin-top，改用padding-top （如果子盒子有border,那这个方法就不适合了）
+		
+		3.给父元素添加1px的padding或者添加一个style不为none的border，可以使用透明border（如果设计师不能容忍1px的差异，那这个就不适用了）
+		
+		4.给父元素加上浮动（如果要占满一行那就要加上width:100%）
+		
+		5.设置父元素dispaly:inline-block或者display:table-cell;（如果要占满一行那就要加上width:100%）
+		
+		6.给父元素添加绝对定位(不推荐)
+		
+		这几个方法都能解决嵌套导致的margin折叠问题，任君选择
+		
+		
+		
+		
+		
+		3.2 兄弟之间的margin折叠解决方法
+		
+		1.给最后面的兄弟加上浮动
+		
+		2.给最后面的元素加上display：inline-block;
+	-->
 </html>
