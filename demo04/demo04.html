@@ -1,0 +1,54 @@
+<!--absolute定位-->
+<!DOCTYPE html>
+<html>
+	<!--
+		1.absolute定位在不设置left、top等值的情况下，默认为它在普通流的位置，只是它不再占据在普通流中的空间，如下例div2设置为absolute后，div3会占据div2的空间，div2的位置保持不变。
+	-->
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.content{
+				position: relative;
+				margin: 300px auto 0 auto; 
+				width: 600px;
+				height: 200px;
+				border:  1px solid;
+				background-color: #fffff0;
+			}
+			.div1{
+				display: inline-block;
+				width: 50px;
+				height: 50px;
+				background-color: #ff0000;
+			}
+			.div2{
+				display: inline-block;
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				background-color: #00ff00;
+			}
+			.div3{
+				display: inline-block;
+				width: 50px;
+				height: 50px;
+				background-color: #8fffff;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<div class="div1">
+				1
+			</div>
+			<div class="div2">
+				2
+			</div>
+			<div class="div3">
+				3
+			</div>
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!--absolute定位-->
+<!DOCTYPE html>
+<html>
+	<!--行内元素的垂直排列方式；
+		span是行级标签,display默认为inline，给它设置宽高是没有意义的，它只会根据内容来自动调整宽高。
+	-->
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.text{
+				display: inline-block;/*为了让空的span显示背景可将span设置为inline-block*/
+				width: 50px;
+				height: 50px;
+				background: #00F000;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<span class="text"></span>
+		</div>
+	</body>
+</html>
