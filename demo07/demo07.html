@@ -1,0 +1,89 @@
+<!--absolute定位-->
+<!DOCTYPE html>
+<html>
+	<!--让方块菜单自适应界面
+	-->
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body,html{
+				margin: 0;
+				padding: 0;
+			}
+			.content{
+				position: relative;
+				margin: 0 auto;
+				width: 80%;
+				height: 100px;
+				background-color: #ffbbbb;
+				padding: 0;
+			}
+			.pro{
+				min-width: 200px;
+				display: inline-block;
+				border-radius:5px;
+				width: auto;
+				height: 150px;
+				background:  #5F55D9;
+				margin: 0 auto;
+				left: 0;
+				right: 0;
+			}
+			
+			.fl{
+				float: left;
+			}
+		</style>
+		<script src="jquery.min.js" type="text/javascript" charset="UTF-8"></script>
+		<script>
+			window.onload=function(){
+				var width=innerWidth*0.8;
+				var num=Math.floor(width/200);
+				var proWidth=100/num+"%";
+				$(".pro").css("width",proWidth);
+				console.log(proWidth);
+			}
+			
+			window.onresize = function(){
+				var width=innerWidth*0.8;
+				var num=Math.floor(width/200);
+				var proWidth=100/num+"%";
+				console.log(num);
+				$(".pro").css("width",proWidth);
+				console.log($(".pro").css("width"));
+			}
+		</script>
+	</head>
+	<body>
+		<div class="content">
+			<div class="pro fl">
+				
+			</div>
+			<div class="pro fl">
+				
+			</div>
+			<div class="pro fl">
+				
+			</div>
+			<div class="pro fl">
+				
+			</div>
+			<div class="pro fl">
+				
+			</div>
+			<div class="pro fl">
+				
+			</div>
+			<div class="pro fl">
+				
+			</div>
+			<div class="pro fl">
+				
+			</div>
+			<div class="pro fl">
+				
+			</div>
+		</div>
+	</body>
+</html>
