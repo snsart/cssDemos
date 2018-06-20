@@ -1,10 +1,12 @@
 <!--absolute定位-->
 <!DOCTYPE html>
 <html>
-	<!--让方块菜单自适应界面
-		思路：1.设置每一个方块的 最小宽度min-width；
-			2.根据方块最小宽度min-width和容器宽度conWidth，计算容器一行最多可放方块数量num；
-			3.根据conWidth/num,算出每个方块所占的比例，然后用百分比设置方块宽度；
+	<!--保持方块菜单宽高比
+		思路：在demo7中，实现了div菜单随浏览器宽度改变而自动调整宽度和数量，本示例研究如何在方块缩放时保证方块宽高比例不变；
+		1.方法一：宽度按百分比布局，高度通过设置方块的padding-top属性实现,当方块中有内容时，将内容的定位设置为absolute；
+		
+		知识点：
+		padding-top：值为百分比时，定义了基于父元素宽度的百分比上内边距。此值不会如预期的那样工作于所有的浏览器中。
 	-->
 	<head>
 		<meta charset="UTF-8">
@@ -18,14 +20,13 @@
 				position: relative;
 				margin: 0 auto;
 				width: 80%;
+				height: 100px;
 				padding: 0;
 			}
 			.pro{
 				position: relative;
 				min-width: 200px;
-				display: inline-block;
 				width: auto;
-				height: 150px;
 				background:  #cccccc;
 				margin: 0 auto;
 				left: 0;
@@ -60,10 +61,13 @@
 			}
 			
 			function layout(){
-				var width=$(".content").width();//计算容器宽度
+				var ratio=0.8//高度是宽度的0.8倍
+				var width=$(".content").width();
 				var num=Math.floor(width/200);
 				var proWidth=100/num+"%";
+				var proHeight=100/num*ratio+"%"
 				$(".pro").css("width",proWidth);
+				$(".pro").css("padding-top",proHeight);//设置高度百分比
 			}
 		</script>
 	</head>

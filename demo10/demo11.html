@@ -1,10 +1,13 @@
 <!--absolute定位-->
 <!DOCTYPE html>
 <html>
-	<!--让方块菜单自适应界面
-		思路：1.设置每一个方块的 最小宽度min-width；
-			2.根据方块最小宽度min-width和容器宽度conWidth，计算容器一行最多可放方块数量num；
-			3.根据conWidth/num,算出每个方块所占的比例，然后用百分比设置方块宽度；
+	<!--清除浮动：使浮动的元素撑开其所在容器（outer）
+		由于浮动元素会脱离文档流，因此当一个容器中除了浮动元素，没有其它元素时，此容器将失去空间，容器背景边框等属性将不能显示。为了解决此办法，有以下几种方法：
+		1.在outer容器最后添加一div，设置div的clear属性为both;
+		2.父级outer容器定义 overflow:auto;
+		3.:after方法：此方法与方法一类似，即使用伪类:after在父容器outer的最后添加一元素
+		
+		知识点：:after的意思是在.outer内部的最后加入伪元素:after
 	-->
 	<head>
 		<meta charset="UTF-8">
@@ -18,15 +21,13 @@
 				position: relative;
 				margin: 0 auto;
 				width: 80%;
-				padding: 0;
+				padding: 2rem;
+				border: solid thin #666666;	
 			}
 			.pro{
 				position: relative;
-				min-width: 200px;
-				display: inline-block;
+				min-width: 250px;
 				width: auto;
-				height: 150px;
-				background:  #cccccc;
 				margin: 0 auto;
 				left: 0;
 				right: 0;
@@ -35,18 +36,39 @@
 			.pro-info{
 				position: absolute;
 				border-radius:5px;
-				width: 90%;
-				height: 90%;
+				border: solid thin #666666;
+				width: 95%;
+				height: 95%;
 				margin: auto;
 				top: 0;
 				bottom: 0;
 				left: 0;
 				right: 0;
-				background-color:#ffffff;
+				background-color:#CCCCCC;
 			}
 			
 			.fl{
 				float: left;
+			}
+			
+			.clear{
+				clear: both;
+				height:0; 
+				line-height:0; 
+				font-size:0;
+			}
+			/*方法3：使用伪类:after清除浮动*/
+			.content:after{
+				clear:both;
+				content:'';
+				display:block;
+				width:0;
+				height:0;
+				visibility:hidden; 
+			}
+			/*方法2：设置父容器的over-flow属性*/
+			.over-flow{
+				overflow: auto;
 			}
 		</style>
 		<script src="jquery.min.js" type="text/javascript" charset="UTF-8"></script>
@@ -60,15 +82,18 @@
 			}
 			
 			function layout(){
-				var width=$(".content").width();//计算容器宽度
-				var num=Math.floor(width/200);
+				var ratio=0.8//高度是宽度的0.8倍
+				var width=$(".content").width();
+				var num=Math.floor(width/250);
 				var proWidth=100/num+"%";
+				var proHeight=$(".pro").outerWidth()*ratio;
 				$(".pro").css("width",proWidth);
+				$(".pro").css("height",proHeight);//设置高度百分比
 			}
 		</script>
 	</head>
 	<body>
-		<div class="content">
+		<div class="content over-flow">
 			<div class="pro fl">
 				<div class="pro-info">
 					
@@ -114,6 +139,8 @@
 					
 				</div>
 			</div>
+			<!--方法1-->
+			<!--<div class="clear"></div>-->
 		</div>
 	</body>
 </html>

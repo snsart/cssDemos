@@ -1,10 +1,9 @@
 <!--absolute定位-->
 <!DOCTYPE html>
 <html>
-	<!--让方块菜单自适应界面
-		思路：1.设置每一个方块的 最小宽度min-width；
-			2.根据方块最小宽度min-width和容器宽度conWidth，计算容器一行最多可放方块数量num；
-			3.根据conWidth/num,算出每个方块所占的比例，然后用百分比设置方块宽度；
+	<!--使文本在容器中垂直居中
+		1.单行文本：设置文本的line-height等于div容器的height；
+		2.多行文本：将容器作为表格单元格显示,即设置display：table-cell，然后设置表格属性：vertical-align:middle;
 	-->
 	<head>
 		<meta charset="UTF-8">
@@ -18,15 +17,23 @@
 				position: relative;
 				margin: 0 auto;
 				width: 80%;
-				padding: 0;
+				padding: 2rem;
+				border: solid thin #666666;	
 			}
+			
+			.content:after{
+				clear:both;
+				content:'';
+				display:block;
+				width:0;
+				height:0;
+				visibility:hidden; 
+			}
+			
 			.pro{
 				position: relative;
-				min-width: 200px;
-				display: inline-block;
+				min-width: 250px;
 				width: auto;
-				height: 150px;
-				background:  #cccccc;
 				margin: 0 auto;
 				left: 0;
 				right: 0;
@@ -34,20 +41,37 @@
 			
 			.pro-info{
 				position: absolute;
+				display: table;
 				border-radius:5px;
-				width: 90%;
-				height: 90%;
+				border: solid thin #666666;
+				width: 95%;
+				height: 95%;
 				margin: auto;
 				top: 0;
 				bottom: 0;
 				left: 0;
 				right: 0;
-				background-color:#ffffff;
+				background-color:#CCCCCC;
+			}
+			
+			.pro-head{ 
+				display:table-cell; 
+				padding: 0 10px;
+				text-align: center;
+				vertical-align:middle;
 			}
 			
 			.fl{
 				float: left;
 			}
+			
+			.clear{
+				clear: both;
+				height:0; 
+				line-height:0; 
+				font-size:0;
+			}
+			
 		</style>
 		<script src="jquery.min.js" type="text/javascript" charset="UTF-8"></script>
 		<script>
@@ -60,18 +84,27 @@
 			}
 			
 			function layout(){
-				var width=$(".content").width();//计算容器宽度
-				var num=Math.floor(width/200);
+				var ratio=0.8;
+				var width=$(".content").width();
+				var num=Math.floor(width/250);
 				var proWidth=100/num+"%";
+				var proHeight=$(".pro").outerWidth()*ratio;
 				$(".pro").css("width",proWidth);
+				$(".pro").css("height",proHeight);
+				console.log($(".pro-head").css("height"));
 			}
 		</script>
 	</head>
 	<body>
-		<div class="content">
+		<div class="content over-flow">
 			<div class="pro fl">
 				<div class="pro-info">
-					
+					<h1 class="pro-head">第三纬度与透视图简介</h1>
+				</div>
+			</div>
+			<div class="pro fl">
+				<div class="pro-info">
+					<h1 class="pro-head">三维图形</h1>
 				</div>
 			</div>
 			<div class="pro fl">
@@ -109,11 +142,8 @@
 					
 				</div>
 			</div>
-			<div class="pro fl">
-				<div class="pro-info">
-					
-				</div>
-			</div>
+			<!--方法1-->
+			<!--<div class="clear"></div>-->
 		</div>
 	</body>
 </html>

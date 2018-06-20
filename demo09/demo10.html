@@ -1,10 +1,16 @@
 <!--absolute定位-->
 <!DOCTYPE html>
 <html>
-	<!--让方块菜单自适应界面
-		思路：1.设置每一个方块的 最小宽度min-width；
-			2.根据方块最小宽度min-width和容器宽度conWidth，计算容器一行最多可放方块数量num；
-			3.根据conWidth/num,算出每个方块所占的比例，然后用百分比设置方块宽度；
+	<!--保持div宽高比
+		方法二：通过方块div宽度，直接计算出高度，然后设置div的height属性即可；
+		知识点：jquery的三个计算宽度和高度的方法；
+		（1）outerWidth()函数用于获取当前匹配元素的外宽度。
+		外宽度默认包括元素的内边距(padding)、边框(border)，但不包括外边距(margin)部分的宽度。你也可以指定参数为true，以包括外边距(margin)部分的宽度。
+		（2）innerWidth()函数用于设置或返回当前匹配元素的内宽度。
+		内宽度包括元素的内边距(padding)，但不包括外边距(margin)、边框(border)等部分的高度。
+		（3）width()函数用于设置或返回当前匹配元素的宽度。
+		该宽度值不包括元素的外边距(margin)、内边距(padding)、边框(border)等部分的宽度。相当于元素的width属性；
+		高度有相对应的方法，含义一样。
 	-->
 	<head>
 		<meta charset="UTF-8">
@@ -18,14 +24,13 @@
 				position: relative;
 				margin: 0 auto;
 				width: 80%;
+				height: 100px;
 				padding: 0;
 			}
 			.pro{
 				position: relative;
 				min-width: 200px;
-				display: inline-block;
 				width: auto;
-				height: 150px;
 				background:  #cccccc;
 				margin: 0 auto;
 				left: 0;
@@ -60,10 +65,13 @@
 			}
 			
 			function layout(){
-				var width=$(".content").width();//计算容器宽度
+				var ratio=0.8//高度是宽度的0.8倍
+				var width=$(".content").width();
 				var num=Math.floor(width/200);
 				var proWidth=100/num+"%";
+				var proHeight=$(".pro").outerWidth()*ratio;
 				$(".pro").css("width",proWidth);
+				$(".pro").css("height",proHeight);//设置高度百分比
 			}
 		</script>
 	</head>
