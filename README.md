@@ -53,30 +53,30 @@
 
 * 1)页面结构
 
-容器: container 
-页头：header 
-内容：content/container 
-页面主体：main 
-页尾：footer 
-导航：nav 
-侧栏：sidebar 
-栏目：column 
-页面外围控制整体佈局宽度：wrapper 
-左右中：left right center
+容器: container <br/>
+页头：header <br/>
+内容：content/container <br/> 
+页面主体：main <br/>
+页尾：footer <br/>
+导航：nav <br/>
+侧栏：sidebar <br/>
+栏目：column <br/>
+页面外围控制整体布局宽度：wrapper <br/> 
+左右中：left right center<br/>
 
 * (2)导航
 
-导航：nav 
-主导航：mainnav 
-子导航：subnav 
-顶导航：topnav 
-边导航：sidebar 
-左导航：leftsidebar 
-右导航：rightsidebar 
-菜单：menu 
-子菜单：submenu 
-标题: title 
-摘要: summary
+导航：nav <br/>
+主导航：mainnav <br/>
+子导航：subnav <br/>
+顶导航：topnav <br/>
+边导航：sidebar <br/>
+左导航：leftsidebar <br/>
+右导航：rightsidebar <br/>
+菜单：menu <br/>
+子菜单：submenu <br/>
+标题: title <br/>
+摘要: summary<br/>
 
 * (3)功能
 
