@@ -1,0 +1,123 @@
+<!--absolute定位-->
+<!DOCTYPE html>
+<html>
+	<!--使文本在容器中垂直居中
+		1.单行文本：设置文本的line-height等于div容器的height；
+		2.多行文本：将容器作为表格单元格显示,即设置display：table-cell，然后设置表格属性：vertical-align:middle;
+	-->
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body,html,ul{
+				margin: 0;
+				padding: 0;
+			}
+			
+			li{
+				display: inline-block;
+				margin-right: 20px;
+				float: left;
+			}
+			
+			.content{
+				position: relative;
+				margin: 0 auto;
+				width: 960px;
+				padding: 2rem;
+			}
+			
+			#nav{
+				width: 100%;
+				background-color: #CCCCCC;
+			}
+			#nav:after{
+				display: block;
+				content: "";
+				clear: both;
+			}
+			
+			.btn.select{
+				background-color: #666666;
+				color: #FFFFFF;
+			}
+			
+			.content-text{
+				position: relative;
+				width: 100%;
+				background-color:blanchedalmond;
+			}
+			
+			.tabpage{
+				position: absolute;
+				left: 0;
+				width: 100%;
+			}
+			
+			.tabpage.mid{
+				-webkit-transition-duration: 1000ms;
+				-webkit-transition-property: left;
+				-webkit-transition-timing-function:linear;
+				left: 0;
+			}
+			
+			.tabpage.left{
+				-webkit-transition-duration: 1000ms;
+				-webkit-transition-property: left;
+				-webkit-transition-timing-function:linear;
+				left: -960px;	
+			}
+			
+			.tabpage.right{
+				-webkit-transition-duration: 1000ms;
+				-webkit-transition-property: left;
+				-webkit-transition-timing-function:linear;
+				left: 960px;	
+			}
+
+		</style>
+		<script src="jquery.min.js" type="text/javascript" charset="UTF-8"></script>
+		
+	</head>
+	<body>
+		<div class="content">
+			<ul id="nav">
+				<li class="btn btn-1 select">选项一</li>
+				<li class="btn btn-2">选项二</li>
+				<li class="btn btn-3">选项三</li>
+			</ul>
+			<div class="content-text">
+				<div class="tabpage page-1 mid">
+					主要的 master.css <br/>
+					模块 module.css <br/>
+					基本共用 base.css <br/>
+					布局、版面 layout.css <br/>
+					主题 themes.css <br/>
+					专栏 columns.css <br/>
+					文字 font.css <br/>
+					表单 forms.css <br/>
+					补丁 mend.css <br/>
+					打印 print.css <br/>
+				</div>
+				<div class="tabpage page-2 right">
+					### 注意事项::
+					1. 一律小写; 
+					2. 尽量用英文; 
+					3. 不加下划线; 
+					4. 尽量不缩写，除非一看就明白的单词。
+				</div>
+				<div class="tabpage page-3 right">
+					第三页
+				</div>
+			</div>
+		</div>
+		<script>
+			console.log($("#nav"))
+			$("#nav").context.addEventListener("click",function(e){
+				var target=e.target;
+				console.log($(target).Attr());
+				
+			})
+		</script>
+	</body>
+</html>
