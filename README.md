@@ -1,7 +1,7 @@
 # cssDemos
 
 #### demo1——margin折叠问题
-#### demo2——相对定位与绝对定
+#### demo2——相对定位与绝对定位
 #### demo3——浮动
 #### demo4——absolute默认位置，即left、top的相对位置
 #### demo5——默认垂直对齐方式，元素的默认margin、padding值
