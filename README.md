@@ -1,7 +1,7 @@
 # cssDemos
 
 #### demo1——margin折叠问题
-#### demo2——相对定位与绝对定
+#### demo2——相对定位与绝对定位
 #### demo3——浮动
 #### demo4——absolute默认位置，即left、top的相对位置
 #### demo5——默认垂直对齐方式，元素的默认margin、padding值
@@ -13,6 +13,9 @@
 #### demo11——行内元素垂直居中（单行、多行）
 #### demo12——选项卡的实现
 #### demo14——流体布局
+
+### 知识点记录
+1.min-height:要使min-heigh生效，其父元素必须有明确的高度，特别是当父元素设置了min-height,而没有设置height时,子元素的min-height不会起作用；
 
 ***
 
