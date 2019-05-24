@@ -1,0 +1,61 @@
+<!--absolute定位-->
+<!DOCTYPE html>
+<html>
+	<!--使文本在容器中垂直居中
+		
+	-->
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body,html{
+				margin: 0;
+				padding: 0;
+			}
+			.nav{
+				position: relative;
+				display: inline-block;
+				/*float: left;*/
+				padding: 2px;
+				border: 1px solid #282C34;
+				/*overflow: hidden;*/
+			}
+			.right{
+				/*width: 50px;
+				height: 50px;
+				background: #666666;*/
+			}
+			.in{
+				width: 50px;
+				height: 50px;
+				
+				background-color: #61DAFB;
+			}
+			li{
+				list-style: none;
+				margin: 1px;
+				float: left;
+				width: 10px;
+				height: 40px;
+				background-color: #75D74D;
+			}
+		</style>
+		<script src="jquery.min.js" type="text/javascript" charset="UTF-8"></script>
+		
+	</head>
+	<body>
+		<div class="content">
+			<div class="nav">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<div class="in"></div>
+			</div>
+			<div class="right">
+				
+			</div>
+		</div>
+	</body>
+</html>
